@@ -70,6 +70,12 @@ class TrafficWidget(BaseWidget):
             upload_speed, download_speed = self._get_speed()
         except Exception:
             upload_speed, download_speed = "N/A", "N/A"
+        else:
+            # len("123.4 kB/s") == 10 # +1 for safety & beauty
+            MAX_LEN = 11
+            upload_speed = upload_speed.rjust(MAX_LEN)
+            download_speed = download_speed.rjust(MAX_LEN)
+
 
         label_options = [
             ("{upload_speed}", upload_speed),
