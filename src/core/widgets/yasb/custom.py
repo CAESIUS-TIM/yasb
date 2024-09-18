@@ -74,7 +74,12 @@ class CustomWidget(BaseWidget):
         active_label_content = self._label_alt_content if self._show_alt_label else self._label_content
 
         try:
-            active_label.setText(self._truncate_label(active_label_content.format(data=self._exec_data)))
+            if self._exec_return_type == "json":
+                active_label.setText(self._truncate_label(active_label_content.format(data=self._exec_data)))
+            elif self._exec_data is not None:
+                active_label.setText(self._exec_data)
+            else:
+                raise ValueError("No data found in execution command output")
         except Exception:
             active_label.setText(self._truncate_label(active_label_content))
 
