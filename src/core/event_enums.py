@@ -19,6 +19,7 @@ class KomorebiEvent(Event):
     KomorebiUpdate = "KomorebiUpdate"
     KomorebiDisconnect = "KomorebiDisconnect"
     FocusWorkspaceNumber = "FocusWorkspaceNumber"
+    FocusWorkspaceNumbers = "FocusWorkspaceNumbers"
     FocusMonitorWorkspaceNumber = "FocusMonitorWorkspaceNumber"
     FocusChange = "FocusChange"
     ChangeLayout = "ChangeLayout"
